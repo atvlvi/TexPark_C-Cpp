@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/views/AppData/Local/lxss/home/viewsharp/TechPark/lab_1
+# Install script for directory: C:/Users/views/YandexDisk/Documents/GitHub/park_mail_ru_c-cpp/lab_1
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -35,5 +35,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "C:/Users/views/AppData/Local/lxss/home/viewsharp/TechPark/lab_1/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "C:/Users/views/YandexDisk/Documents/GitHub/park_mail_ru_c-cpp/lab_1/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
