@@ -1,0 +1,36 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/views/AppData/Local/lxss/home/viewsharp/TechPark/lab_1/dict.c
+stdio.h
+-
+stdlib.h
+-
+dict.h
+C:/Users/views/AppData/Local/lxss/home/viewsharp/TechPark/lab_1/dict.h
+
+C:/Users/views/AppData/Local/lxss/home/viewsharp/TechPark/lab_1/dict.h
+keyval.h
+C:/Users/views/AppData/Local/lxss/home/viewsharp/TechPark/lab_1/keyval.h
+
+C:/Users/views/AppData/Local/lxss/home/viewsharp/TechPark/lab_1/keyval.c
+stdlib.h
+-
+strings.h
+-
+keyval.h
+C:/Users/views/AppData/Local/lxss/home/viewsharp/TechPark/lab_1/keyval.h
+
+C:/Users/views/AppData/Local/lxss/home/viewsharp/TechPark/lab_1/keyval.h
+
+C:/Users/views/AppData/Local/lxss/home/viewsharp/TechPark/lab_1/main.c
+stdio.h
+-
+dict.h
+C:/Users/views/AppData/Local/lxss/home/viewsharp/TechPark/lab_1/dict.h
+
