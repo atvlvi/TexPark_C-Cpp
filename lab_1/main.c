@@ -1,20 +1,20 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <errno.h>
-#include "dict.h"
+//#include <errno.h>
+//#include "dict.h"
 
 int check(int argc, int *n, const char* argv[]);
 int is_zero(char *argv);
 
 int main(int argc, char* argv[]) {
 	int n = 0;
-	if (check(argc, &n, argv)) {
+	if (check(argc, &n, (const char**)argv)) {
 		printf("n = %i", n);
 
 	}
 }
 
-int dict_test(){
+/*int dict_test(){
 	int zero = 0;
 	float one = 1.0;
 	char two[] = "two";
@@ -26,7 +26,7 @@ int dict_test(){
 		   *(int *) dictionary_find(d, "an int"));
 	printf("Coxpaнeннaя строка: %s\n", (char *) dictionary_find(d, "а string"));
 	dictionary_free(d);
-}
+}*/
 
 int check(int argc, int *n, const char* argv[]) {
 	switch(argc) {
@@ -37,18 +37,15 @@ int check(int argc, int *n, const char* argv[]) {
 			fprintf(stderr, "missing 1 required positional argument: 'file name\n'");
 			return 0;
 		case 3:
-			if (is_zero(argv[1])) {
+			if (is_zero((char*)argv[1])) {
 				*n = 0;
 				return 1;
 			}
 			else {
 				*n = strtol(argv[1], NULL, 10);
-				if (*n)
-					return 1;
-				else {
-					perror(errno);
-					return 0;
-				}
+				if (errno != 0)
+					perror("warning: ");
+				return (*n > 0);
 			}
 		default:
 			fprintf(stderr, "takes 2 positional arguments but %i were given\n", argc - 1);
