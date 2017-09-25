@@ -49,6 +49,7 @@ void dict_add(dict *in, const char *key, void *value) {
         abort();
     }
     if (*key == 0) {
+        fprintf(stderr, "The key can not be NULL.\n");
         return;
     }
     keyval** pairs = in->pairs;
