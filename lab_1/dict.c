@@ -48,6 +48,9 @@ void dict_add(dict *in, const char *key, void *value) {
         fprintf(stderr, "The key can not be NULL.\n");
         abort();
     }
+    if (*key == 0) {
+        return;
+    }
     keyval** pairs = in->pairs;
     long key_hash = dict_hash(in, key);
     size_t max = (in->length > (key_hash + in->sqrt)) ? key_hash + in->sqrt : in->length;

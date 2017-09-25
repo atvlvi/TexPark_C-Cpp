@@ -35,6 +35,8 @@ stdio.h
 -
 stdlib.h
 -
+errno.h
+-
 ctype.h
 -
 string.h
