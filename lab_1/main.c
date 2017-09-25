@@ -45,6 +45,8 @@ int check(int argc, int *n, const char* argv[]) {
 				*n = strtol(argv[1], NULL, 10);
 				if (errno != 0)
 					perror("warning: ");
+				if (*n < 0)
+					fprintf(stderr, "'N' must be greater than zero\n'");
 				return (*n > 0);
 			}
 		default:
