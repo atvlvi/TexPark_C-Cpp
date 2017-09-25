@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-//#include <errno.h>
+#include <errno.h>
 //#include "dict.h"
 
 int check(int argc, int *n, const char* argv[]);
