@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-//#include <errno.h>
+#include <errno.h>
 #include <ctype.h>
 #include <string.h>
 #include "dict.h"
