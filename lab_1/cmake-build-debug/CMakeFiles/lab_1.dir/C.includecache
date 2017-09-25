@@ -11,6 +11,10 @@ stdio.h
 -
 stdlib.h
 -
+string.h
+-
+math.h
+-
 dict.h
 C:/Users/views/YandexDisk/Documents/GitHub/park_mail_ru_c-cpp/lab_1/dict.h
 
@@ -20,8 +24,6 @@ C:/Users/views/YandexDisk/Documents/GitHub/park_mail_ru_c-cpp/lab_1/keyval.h
 
 C:/Users/views/YandexDisk/Documents/GitHub/park_mail_ru_c-cpp/lab_1/keyval.c
 stdlib.h
--
-strings.h
 -
 keyval.h
 C:/Users/views/YandexDisk/Documents/GitHub/park_mail_ru_c-cpp/lab_1/keyval.h
@@ -33,7 +35,9 @@ stdio.h
 -
 stdlib.h
 -
-errno.h
+ctype.h
+-
+string.h
 -
 dict.h
 C:/Users/views/YandexDisk/Documents/GitHub/park_mail_ru_c-cpp/lab_1/dict.h

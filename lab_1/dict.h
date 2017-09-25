@@ -3,16 +3,16 @@
 
 #include "keyval.h"
 
-extern void *dictionary_not_found;
-typedef struct dictionary {
+extern void *dict_not_found;
+typedef struct dict {
     keyval **pairs;
-    int length;
-} dictionary;
+    size_t length;
+    size_t sqrt;
+} dict;
 
-dictionary *dictionary_new(void);
-dictionary *dictionary_copy(dictionary *in);
-void dictionary_free(dictionary *in);
-void dictionary_add(dictionary *in, char*key, void*value);
-void *dictionary_find(dictionary const *in, char const *key);
+dict *dict_new(void);
+void dict_free(dict *in);
+void dict_add(dict *in, const char *key, void *value);
+void *dict_find(dict const *in, char const *key);
 
 #endif

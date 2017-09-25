@@ -1,46 +1,86 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
+#include <math.h>
 #include "dict.h"
 
-void *dictionary_not_found;
+#define MIN_DICT_LEN 15
 
-dictionary *dictionary_new(void){
-    static int dnf;
-    if(!dictionary_not_found)
-        dictionary_not_found = &dnf;
-    dictionary *out = malloc(sizeof(dictionary));
-    *out = (dictionary) {};
+void *dict_not_found;
+
+static unsigned long hash(const char *str) {
+    unsigned long hash = 0;
+    for(; *str; str++)
+        hash = (hash * 1664525) + (unsigned char)(*str) + 1013904223;
+    return hash;
+}
+
+static unsigned long dict_hash(const dict *in, const char *str) {
+    return hash(str) % (unsigned int)in->length;
+}
+
+dict *dict_new_body(size_t len) {
+    dict *out = malloc(sizeof(dict));
+    *out = (dict) {.pairs = calloc(len, sizeof(keyval *)), .length = len, .sqrt = (size_t)(int)sqrt(len)};
     return out;
 }
-static void dictionary_add_keyval(dictionary *in, keyval *kv){
-    in->length++;
-    in->pairs = realloc(in->pairs, sizeof(keyval*) * in->length);
-    in->pairs[in->length-1] = kv;
+
+dict *dict_new(void){
+    static int dnf;
+    if(!dict_not_found)
+        dict_not_found = &dnf;
+    return dict_new_body(MIN_DICT_LEN);
 }
 
-void dictionary_add(dictionary *in, char *key, void *value) {
+void dict_expand(dict *in) {
+    keyval** pairs = in->pairs;
+    dict *out = dict_new_body(in->length * 2 - 1);
+    for (int i = 0; i < in->length; i++) {
+        if (pairs[i])
+            dict_add(out, pairs[i]->key, pairs[i]->value);
+    }
+    dict_free(in);
+    *in = *out;
+}
+
+void dict_add(dict *in, const char *key, void *value) {
     if (!key) {
-        fprintf(stderr, "Ключ не может быть равен NULL.\n");
+        fprintf(stderr, "The key can not be NULL.\n");
         abort();
     }
-    dictionary_add_keyval(in, keyval_new(key, value));
+    keyval** pairs = in->pairs;
+    long key_hash = dict_hash(in, key);
+    size_t max = (in->length > (key_hash + in->sqrt)) ? key_hash + in->sqrt : in->length;
+    for (int i = key_hash; i < max && i; i++) {
+        if (!pairs[i]) {
+            pairs[i] = keyval_new(key, value);
+            return;
+        }
+        if (strcmp(key, pairs[i]->key) == 0) {
+            free(pairs[i]);
+            pairs[i] = keyval_new(key, value);
+            return;
+        }
+    }
+    dict_expand(in);
+    dict_add(in, key, value);
 }
 
-void*dictionary_find(dictionary const*in, char const*key) {
-    for (int i = 0; i < in->length; i++)
-        if (keyval_matches(in->pairs[i], key))
-            return in->pairs[i]->value;
-    return dictionary_not_found;
+void *dict_find(const dict *in, const char *key) {
+    long key_hash = dict_hash(in, key);
+    keyval** pairs = in->pairs;
+    for (int i = key_hash; i < key_hash + in->sqrt; i++) {
+        if (!pairs[i]) {
+            return dict_not_found;
+        }
+        if (strcmp(key, pairs[key_hash]->key) == 0) {
+            return pairs[key_hash]->value;
+        }
+    }
+    return dict_not_found;
 }
 
-dictionary *dictionary_copy(dictionary *in) {
-    dictionary *out = dictionary_new();
-    for (int i = 0; i < in->length; i++)
-        dictionary_add_keyval(out, keyval_copy(in->pairs[i]));
-    return out;
-}
-
-void dictionary_free(dictionary * in) {
+void dict_free(dict *in) {
     for (int i = 0; i < in->length; i++)
         keyval_free;
 }
