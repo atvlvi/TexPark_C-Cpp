@@ -57,7 +57,7 @@ int main(int argc, char* argv[]) {
                             ((word *)dict->pairs[i]->value)->flag = 0;
 			}
 			fclose(fin);
-            printf("%16s: %16s %16s\n", "слово", "кол. абзацев", "кол. в файле");
+            printf("%s: %16s %16s\n", "слово", "кол. абзацев", "кол. в файле");
             for (int i = 0; i < dict->length; i++)
                 if (dict->pairs[i]) {
                     loc = (word *) dict->pairs[i]->value;
