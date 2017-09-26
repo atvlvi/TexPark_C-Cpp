@@ -57,12 +57,12 @@ int main(int argc, char* argv[]) {
                             ((word *)dict->pairs[i]->value)->flag = 0;
 			}
 			fclose(fin);
-            printf("%s: %16s %16s\n", "слово", "кол. абзацев", "кол. в файле");
+            printf("(кол. абзацев, кол. в файле) - слово\n");
             for (int i = 0; i < dict->length; i++)
                 if (dict->pairs[i]) {
                     loc = (word *) dict->pairs[i]->value;
                     if (loc->paragraph > n)
-                        printf("%16s: %16i %16i\n", dict->pairs[i]->key, loc->paragraph, loc->count);
+                        printf("(%5i, %4i) - %s\n", loc->paragraph, loc->count, dict->pairs[i]->key);
                 }
 		}
 		else
