@@ -28,30 +28,28 @@ int main(int argc, char* argv[]) {
 		FILE *fin = fopen(argv[2], "r");
 		if (fin) {
 			while ((c = (char)getc(fin)) !=EOF) {
-                if (c != '\n') {
-                    if (ispunct(c) || isspace(c)) {
-                        if (buf_link == buf)
-                            continue;
-                        *buf_link = '\0';
-                        loc = dict_find(dict, buf);
-                        if (loc == dict_not_found) {
-                            loc = (word *) malloc(sizeof(word));
-                            *loc = (word) {.count = 1, .paragraph = 1, .flag = 1};
-                            dict_add(dict, strcpy(malloc(strlen(buf)), buf), loc);
-                        } else {
-                            if (!loc->flag) {
-                                loc->paragraph++;
-                                loc->flag = 1;
-                            }
-                            loc->count++;
+                if (ispunct(c) || isspace(c)) {
+                    if (buf_link == buf)
+                        continue;
+                    *buf_link = '\0';
+                    loc = dict_find(dict, buf);
+                    if (loc == dict_not_found) {
+                        loc = (word *) malloc(sizeof(word));
+                        *loc = (word) {.count = 1, .paragraph = 1, .flag = 1};
+                        dict_add(dict, strcpy(malloc(strlen(buf)), buf), loc);
+                    } else {
+                        if (!loc->flag) {
+                            loc->paragraph++;
+                            loc->flag = 1;
                         }
-                        buf_link = buf;
-                    } else if (buf_link - buf < 63) {
-                        *buf_link = c;
-                        buf_link++;
+                        loc->count++;
                     }
+                    buf_link = buf;
+                } else if (buf_link - buf < 63) {
+                    *buf_link = c;
+                    buf_link++;
                 }
-                else
+                if (c == '\n')
                     for (int i = 0; i < dict->length; i++)
                         if (dict->pairs[i])
                             ((word *)dict->pairs[i]->value)->flag = 0;
