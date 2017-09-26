@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <math.h>
 #include "dict.h"
 
 #define MIN_DICT_LEN 15
@@ -21,7 +20,7 @@ static unsigned long dict_hash(const dict *in, const char *str) {
 
 dict *dict_new_body(size_t len) {
     dict *out = malloc(sizeof(dict));
-    *out = (dict) {.pairs = calloc(len, sizeof(keyval *)), .length = len, .sqrt = (size_t)(int)sqrt(len)};
+    *out = (dict) {.pairs = calloc(len, sizeof(keyval *)), .length = len, .sqrt = len/5};
     return out;
 }
 

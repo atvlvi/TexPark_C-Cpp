@@ -7,11 +7,18 @@
 
 #define MAXLEN 64
 
+typedef struct word {
+    int count;
+    int paragraph;
+    char flag;
+} word;
+
+
 int check(int argc, int *n, const char *argv[]);
 int is_zero(const char *argv);
 
 int main(int argc, char* argv[]) {
-	int *count = NULL;
+	word *loc = NULL;
 	int n = 0;
 	char c = 0;
 	char buf[MAXLEN];
@@ -21,34 +28,41 @@ int main(int argc, char* argv[]) {
 		FILE *fin = fopen(argv[2], "r");
 		if (fin) {
 			while ((c = (char)getc(fin)) !=EOF) {
-				if (ispunct(c) || isspace(c)) {
-					if (buf_link == buf)
-						continue;
-					*buf_link = '\0';
-					count = dict_find(dict, buf);
-					if (count == dict_not_found) {
-						count = (int *) malloc(sizeof(int));
-						if (!count) {
-							fprintf(stderr, "Memory allocation error");
-							return 0;
-						}
-						*count = 1;
-						dict_add(dict, strcpy(malloc(strlen(buf)), buf), count);
-					}
-					else {
-						(*count)++;
-					}
-					buf_link = buf;
-				} else if (buf_link - buf < 63) {
-					*buf_link = c;
-					buf_link++;
-				}
+                if (c != '\n') {
+                    if (ispunct(c) || isspace(c)) {
+                        if (buf_link == buf)
+                            continue;
+                        *buf_link = '\0';
+                        loc = dict_find(dict, buf);
+                        if (loc == dict_not_found) {
+                            loc = (word *) malloc(sizeof(word));
+                            *loc = (word) {.count = 1, .paragraph = 1, .flag = 1};
+                            dict_add(dict, strcpy(malloc(strlen(buf)), buf), loc);
+                        } else {
+                            if (!loc->flag) {
+                                loc->paragraph++;
+                                loc->flag = 1;
+                            }
+                            loc->count++;
+                        }
+                        buf_link = buf;
+                    } else if (buf_link - buf < 63) {
+                        *buf_link = c;
+                        buf_link++;
+                    }
+                }
+                else
+                    for (int i = 0; i < dict->length; i++)
+                        if (dict->pairs[i])
+                            ((word *)dict->pairs[i]->value)->flag = 0;
 			}
 			fclose(fin);
             for (int i = 0; i < dict->length; i++)
-                if (dict->pairs[i])
-                    if (*(int *)dict->pairs[i]->value > n)
-                        printf("%s: %i\n", dict->pairs[i]->key, *(int *)dict->pairs[i]->value);
+                if (dict->pairs[i]) {
+                    loc = (word *) dict->pairs[i]->value;
+                    if (loc->paragraph > n)
+                        printf("%s: %i %i\n", dict->pairs[i]->key, loc->paragraph, loc->count);
+                }
 		}
 		else
 			fprintf(stderr, "No such file or directory: '%s'\n", argv[2]);

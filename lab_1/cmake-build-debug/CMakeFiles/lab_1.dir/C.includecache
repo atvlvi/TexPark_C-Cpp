@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-C:/Users/views/YandexDisk/Documents/GitHub/park_mail_ru_c-cpp/lab_1/dict.c
+C:/Users/views/YandexDisk/Documents/GitHub/TexPark_C-Cpp/lab_1/dict.c
 stdio.h
 -
 stdlib.h
@@ -16,21 +16,21 @@ string.h
 math.h
 -
 dict.h
-C:/Users/views/YandexDisk/Documents/GitHub/park_mail_ru_c-cpp/lab_1/dict.h
+C:/Users/views/YandexDisk/Documents/GitHub/TexPark_C-Cpp/lab_1/dict.h
 
-C:/Users/views/YandexDisk/Documents/GitHub/park_mail_ru_c-cpp/lab_1/dict.h
+C:/Users/views/YandexDisk/Documents/GitHub/TexPark_C-Cpp/lab_1/dict.h
 keyval.h
-C:/Users/views/YandexDisk/Documents/GitHub/park_mail_ru_c-cpp/lab_1/keyval.h
+C:/Users/views/YandexDisk/Documents/GitHub/TexPark_C-Cpp/lab_1/keyval.h
 
-C:/Users/views/YandexDisk/Documents/GitHub/park_mail_ru_c-cpp/lab_1/keyval.c
+C:/Users/views/YandexDisk/Documents/GitHub/TexPark_C-Cpp/lab_1/keyval.c
 stdlib.h
 -
 keyval.h
-C:/Users/views/YandexDisk/Documents/GitHub/park_mail_ru_c-cpp/lab_1/keyval.h
+C:/Users/views/YandexDisk/Documents/GitHub/TexPark_C-Cpp/lab_1/keyval.h
 
-C:/Users/views/YandexDisk/Documents/GitHub/park_mail_ru_c-cpp/lab_1/keyval.h
+C:/Users/views/YandexDisk/Documents/GitHub/TexPark_C-Cpp/lab_1/keyval.h
 
-C:/Users/views/YandexDisk/Documents/GitHub/park_mail_ru_c-cpp/lab_1/main.c
+C:/Users/views/YandexDisk/Documents/GitHub/TexPark_C-Cpp/lab_1/main.c
 stdio.h
 -
 stdlib.h
@@ -42,5 +42,5 @@ ctype.h
 string.h
 -
 dict.h
-C:/Users/views/YandexDisk/Documents/GitHub/park_mail_ru_c-cpp/lab_1/dict.h
+C:/Users/views/YandexDisk/Documents/GitHub/TexPark_C-Cpp/lab_1/dict.h
 

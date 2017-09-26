@@ -4,9 +4,9 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "C:/Users/views/YandexDisk/Documents/GitHub/park_mail_ru_c-cpp/lab_1/dict.c" "C:/Users/views/YandexDisk/Documents/GitHub/park_mail_ru_c-cpp/lab_1/cmake-build-debug/CMakeFiles/lab_1.dir/dict.c.obj"
-  "C:/Users/views/YandexDisk/Documents/GitHub/park_mail_ru_c-cpp/lab_1/keyval.c" "C:/Users/views/YandexDisk/Documents/GitHub/park_mail_ru_c-cpp/lab_1/cmake-build-debug/CMakeFiles/lab_1.dir/keyval.c.obj"
-  "C:/Users/views/YandexDisk/Documents/GitHub/park_mail_ru_c-cpp/lab_1/main.c" "C:/Users/views/YandexDisk/Documents/GitHub/park_mail_ru_c-cpp/lab_1/cmake-build-debug/CMakeFiles/lab_1.dir/main.c.obj"
+  "C:/Users/views/YandexDisk/Documents/GitHub/TexPark_C-Cpp/lab_1/dict.c" "C:/Users/views/YandexDisk/Documents/GitHub/TexPark_C-Cpp/lab_1/cmake-build-debug/CMakeFiles/lab_1.dir/dict.c.obj"
+  "C:/Users/views/YandexDisk/Documents/GitHub/TexPark_C-Cpp/lab_1/keyval.c" "C:/Users/views/YandexDisk/Documents/GitHub/TexPark_C-Cpp/lab_1/cmake-build-debug/CMakeFiles/lab_1.dir/keyval.c.obj"
+  "C:/Users/views/YandexDisk/Documents/GitHub/TexPark_C-Cpp/lab_1/main.c" "C:/Users/views/YandexDisk/Documents/GitHub/TexPark_C-Cpp/lab_1/cmake-build-debug/CMakeFiles/lab_1.dir/main.c.obj"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 
