@@ -1,0 +1,3 @@
+C:/Users/views/YandexDisk/Documents/GitHub/TexPark_C-Cpp/lab_2/cmake-build-debug/CMakeFiles/lab_2.dir
+C:/Users/views/YandexDisk/Documents/GitHub/TexPark_C-Cpp/lab_2/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/views/YandexDisk/Documents/GitHub/TexPark_C-Cpp/lab_2/cmake-build-debug/CMakeFiles/rebuild_cache.dir

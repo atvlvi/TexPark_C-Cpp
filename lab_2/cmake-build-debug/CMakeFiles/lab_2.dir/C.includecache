@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/views/YandexDisk/Documents/GitHub/TexPark_C-Cpp/lab_2/main.c
+stdio.h
+-
+matrix.h
+C:/Users/views/YandexDisk/Documents/GitHub/TexPark_C-Cpp/lab_2/matrix.h
+
+C:/Users/views/YandexDisk/Documents/GitHub/TexPark_C-Cpp/lab_2/matrix.c
+stdio.h
+-
+stdlib.h
+-
+matrix.h
+C:/Users/views/YandexDisk/Documents/GitHub/TexPark_C-Cpp/lab_2/matrix.h
+
+C:/Users/views/YandexDisk/Documents/GitHub/TexPark_C-Cpp/lab_2/matrix.h
+
