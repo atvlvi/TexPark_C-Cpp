@@ -21,7 +21,7 @@ int main(int argc, char *argv[]) {
         }
         matrix *matr = new_matrix(rows, cols);
         if (matr == NULL) {
-            fprintf(stderr, "memory allocation error");
+            fprintf(stderr, "memory allocation error\n");
             return -1;
         }
         for (int i = 0; i < rows; i++)
@@ -43,7 +43,7 @@ int main(int argc, char *argv[]) {
             if (max < sum)
                 max = sum;
         }
-        printf("%s: %f", argv[k], max);
+        printf("%s: %f\n", argv[k], max);
         free_matrix(matr);
     }
 }
