@@ -10,7 +10,6 @@ int main(int argc, char *argv[]) {
     }
     int rows = 0;
     int cols = 0;
-    double num = 0;
     for (int k = 1; k < argc; k++) {
         FILE *fin = fopen(argv[k], "r");
         if (fin == NULL) {
