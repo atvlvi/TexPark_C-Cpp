@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include "matrix.h"
 
+int read_file(FILE *fin, matrix *matr, char *arg);
+
 int main(int argc, char *argv[]) {
     if (argc == 1) {
         fprintf(stderr, "there must be at least one argument\n");
@@ -13,9 +15,11 @@ int main(int argc, char *argv[]) {
         FILE *fin = fopen(argv[k], "r");
         if (fin == NULL) {
             fprintf(stderr, "error opening file: %s\n", argv[k]);
+            fclose(fin);
             break;
         }
         if (fscanf(fin, "%i", &rows) < 1 || fscanf(fin, "%i", &cols) < 1 ) {
+            fclose(fin);
             fprintf(stderr, "error reading file: %s\n", argv[k]);
             break;
         }
@@ -24,14 +28,13 @@ int main(int argc, char *argv[]) {
             fprintf(stderr, "memory allocation error\n");
             return -1;
         }
-        for (int i = 0; i < rows; i++)
-            for (int j = 0; j < cols; j++) {
-                if (fscanf(fin, "%lg", &num) < 1) {
-                    fprintf(stderr, "error reading file: %s\n", argv[k]);
-                    break;
-                }
-                set_elem(matr, i, j, num);
-            }
+        if (!read_file(fin, matr, argv[k])) {
+            fprintf(stderr, "error reading file: %s\n", argv[k]);
+            fclose(fin);
+            free_matrix(matr);
+            break;
+        }
+
         fclose(fin);
         double max = get_elem(matr, 0, 0);
         double sum = 0;
@@ -46,4 +49,18 @@ int main(int argc, char *argv[]) {
         printf("%s: %f\n", argv[k], max);
         free_matrix(matr);
     }
+}
+
+int read_file(FILE *fin, matrix *matr, char *arg) {
+    double num = 0;
+    for (int i = 0; i < matr->rows; i++) {
+        for (int j = 0; j < matr->cols; j++) {
+            if (fscanf(fin, "%lg", &num) < 1) {
+                fprintf(stderr, "error reading file: %s\n", arg);
+                return 0;
+            }
+            set_elem(matr, i, j, num);
+        }
+    }
+    return 1;
 }
