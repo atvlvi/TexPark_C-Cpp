@@ -16,12 +16,12 @@ int main(int argc, char *argv[]) {
         if (fin == NULL) {
             fprintf(stderr, "error opening file: %s\n", argv[k]);
             fclose(fin);
-            break;
+            continue;
         }
         if (fscanf(fin, "%i", &rows) < 1 || fscanf(fin, "%i", &cols) < 1 ) {
-            fclose(fin);
             fprintf(stderr, "error reading file: %s\n", argv[k]);
-            break;
+            fclose(fin);
+            continue;
         }
         matrix *matr = new_matrix(rows, cols);
         if (matr == NULL) {
@@ -32,7 +32,7 @@ int main(int argc, char *argv[]) {
             fprintf(stderr, "error reading file: %s\n", argv[k]);
             fclose(fin);
             free_matrix(matr);
-            break;
+            continue;
         }
 
         fclose(fin);
