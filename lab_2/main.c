@@ -13,11 +13,11 @@ int main(int argc, char *argv[]) {
         FILE *fin = fopen(argv[k], "r");
         if (fin == NULL) {
             fprintf(stderr, "error opening file: %s\n", argv[k]);
-            return -1;
+            break;
         }
         if (fscanf(fin, "%i", &rows) < 1 || fscanf(fin, "%i", &cols) < 1 ) {
             fprintf(stderr, "error reading file: %s\n", argv[k]);
-            return -1;
+            break;
         }
         matrix *matr = new_matrix(rows, cols);
         if (matr == NULL) {
@@ -28,7 +28,7 @@ int main(int argc, char *argv[]) {
             for (int j = 0; j < cols; j++) {
                 if (fscanf(fin, "%lg", &num) < 1) {
                     fprintf(stderr, "error reading file: %s\n", argv[k]);
-                    return -1;
+                    break;
                 }
                 set_elem(matr, i, j, num);
             }
