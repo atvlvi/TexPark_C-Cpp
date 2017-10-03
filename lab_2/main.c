@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include "matrix.h"
 
-int read_file(FILE *fin, matrix *matr, char *arg);
+int read_file(FILE *fin, matrix *matr);
 
 int main(int argc, char *argv[]) {
     if (argc == 1) {
@@ -28,7 +28,7 @@ int main(int argc, char *argv[]) {
             fprintf(stderr, "memory allocation error\n");
             return -1;
         }
-        if (!read_file(fin, matr, argv[k])) {
+        if (!read_file(fin, matr)) {
             fprintf(stderr, "error reading file: %s\n", argv[k]);
             fclose(fin);
             free_matrix(matr);
@@ -50,7 +50,7 @@ int main(int argc, char *argv[]) {
     }
 }
 
-int read_file(FILE *fin, matrix *matr, char *arg) {
+int read_file(FILE *fin, matrix *matr) {
     double num = 0;
     char ch = 0;
     for (int i = 0; i < matr->rows; i++) {
