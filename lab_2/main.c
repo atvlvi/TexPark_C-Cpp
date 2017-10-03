@@ -10,6 +10,7 @@ int main(int argc, char *argv[]) {
     }
     int rows = 0;
     int cols = 0;
+    char ch = 0;
     for (int k = 1; k < argc; k++) {
         FILE *fin = fopen(argv[k], "r");
         if (fin == NULL) {
@@ -17,7 +18,7 @@ int main(int argc, char *argv[]) {
             fclose(fin);
             continue;
         }
-        if (fscanf(fin, "%i", &rows) < 1 || fscanf(fin, "%i", &cols) < 1 ) {
+        if (fscanf(fin, "%i\n%i%c", &rows, &cols, &ch) < 3 || ch != '\n') {
             fprintf(stderr, "error reading file: %s\n", argv[k]);
             fclose(fin);
             continue;
@@ -33,7 +34,6 @@ int main(int argc, char *argv[]) {
             free_matrix(matr);
             continue;
         }
-
         fclose(fin);
         double max = get_elem(matr, 0, 0);
         double sum = 0;
@@ -52,14 +52,16 @@ int main(int argc, char *argv[]) {
 
 int read_file(FILE *fin, matrix *matr, char *arg) {
     double num = 0;
+    char ch = 0;
     for (int i = 0; i < matr->rows; i++) {
         for (int j = 0; j < matr->cols; j++) {
-            if (fscanf(fin, "%lg", &num) < 1) {
-                fprintf(stderr, "error reading file: %s\n", arg);
+            if (fscanf(fin, "%lg", &num) < 1)
                 return 0;
-            }
             set_elem(matr, i, j, num);
         }
+        ch = (char)fgetc(fin);
+        if (ch != '\n' && ch != EOF)
+            return 0;
     }
     return 1;
 }
