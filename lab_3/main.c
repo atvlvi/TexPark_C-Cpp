@@ -30,7 +30,7 @@ int main(int argc, char *argv[]) {
     char string[MAXLEN];
     char *link = string;
     char *max_link = string + MAXLEN - 1;
-    node *list = new_node(NULL, &free_word);
+    node *list = new_node(NULL, free_word);
     int success = 0;
 
     while (fread(buf, sizeof(char), MAXLEN, fin) == MAXLEN) {
@@ -62,10 +62,10 @@ int insert(node *list, char *in) {
     if (list->value == NULL) {
         list->value = new_word(in);
         if (list->value == NULL)
-            return NULL;
-        list->next = new_node(NULL, &free_word);
+            return 0;
+        list->next = new_node(NULL, free_word);
         if (list->next == NULL)
-            return NULL;
+            return 0;
         return 1;
     }
     if (!strcmp(((word *) list->value)->value, in)) {
