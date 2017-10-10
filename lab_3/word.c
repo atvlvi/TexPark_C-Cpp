@@ -12,7 +12,7 @@ word* new_word(char* in) {
         return NULL;
     }
     out->count = 1;
-    strcpy_s(out->value, len, in);
+    strncpy(out->value, in, len);
     return out;
 }
 
