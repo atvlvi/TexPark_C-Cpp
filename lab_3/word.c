@@ -5,13 +5,14 @@
 word* new_word(char* in) {
     word* out = malloc(sizeof(word));
     if (!out) return NULL;
-    out->value = malloc(strlen(in));
+    size_t len = strlen(in)+1;
+    out->value = malloc(len);
     if (!out->value) {
         free(out);
         return NULL;
     }
     out->count = 1;
-    strcpy(out->value, in);
+    strcpy_s(out->value, len, in);
     return out;
 }
 

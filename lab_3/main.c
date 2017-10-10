@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <ctype.h>
 #include <string.h>
+#include <errno.h>
 #include "node.h"
 #include "word.h"
 
@@ -55,6 +56,7 @@ int main(int argc, char *argv[]) {
             }
         }
     }
+    if (errno)  fprintf(stderr, strerror(errno));
     while(sort_list(list));
     print_list(list);
     free_list(list);

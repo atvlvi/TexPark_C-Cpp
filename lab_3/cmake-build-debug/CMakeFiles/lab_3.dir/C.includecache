@@ -13,6 +13,8 @@ ctype.h
 -
 string.h
 -
+errno.h
+-
 node.h
 C:/Users/views/YandexDisk/Documents/GitHub/TexPark_C-Cpp/lab_3/node.h
 word.h

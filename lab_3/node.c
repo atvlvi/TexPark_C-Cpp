@@ -16,7 +16,7 @@ void free_node(node *in) {
 }
 
 void free_list(node *in) {
-    if (in->value != NULL) {
+    if (in->value) {
         free_list(in->next);
         free_node(in);
     }
