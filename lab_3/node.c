@@ -12,7 +12,6 @@ node* new_node(void* value, void (*destruct)(void *value)) {
 
 void free_node(node *in) {
     in->destruct(in->value);
-    free(in->value);
     free(in);
 }
 

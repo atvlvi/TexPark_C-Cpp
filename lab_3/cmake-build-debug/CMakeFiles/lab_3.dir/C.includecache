@@ -9,10 +9,6 @@
 C:/Users/views/YandexDisk/Documents/GitHub/TexPark_C-Cpp/lab_3/main.c
 stdio.h
 -
-stdlib.h
--
-errno.h
--
 ctype.h
 -
 string.h
