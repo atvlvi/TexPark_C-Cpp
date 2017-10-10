@@ -56,7 +56,7 @@ int main(int argc, char *argv[]) {
             }
         }
     }
-    if (errno)  fprintf(stderr, strerror(errno));
+    if (errno)  fprintf(stderr, "%s", strerror(errno));
     while(sort_list(list));
     print_list(list);
     free_list(list);
