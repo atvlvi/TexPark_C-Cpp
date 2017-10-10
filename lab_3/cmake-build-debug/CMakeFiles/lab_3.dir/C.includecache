@@ -1,0 +1,42 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/views/YandexDisk/Documents/GitHub/TexPark_C-Cpp/lab_3/main.c
+stdio.h
+-
+stdlib.h
+-
+errno.h
+-
+ctype.h
+-
+string.h
+-
+node.h
+C:/Users/views/YandexDisk/Documents/GitHub/TexPark_C-Cpp/lab_3/node.h
+word.h
+C:/Users/views/YandexDisk/Documents/GitHub/TexPark_C-Cpp/lab_3/word.h
+
+C:/Users/views/YandexDisk/Documents/GitHub/TexPark_C-Cpp/lab_3/node.c
+stdlib.h
+-
+node.h
+C:/Users/views/YandexDisk/Documents/GitHub/TexPark_C-Cpp/lab_3/node.h
+
+C:/Users/views/YandexDisk/Documents/GitHub/TexPark_C-Cpp/lab_3/node.h
+
+C:/Users/views/YandexDisk/Documents/GitHub/TexPark_C-Cpp/lab_3/word.c
+string.h
+-
+stdlib.h
+-
+word.h
+C:/Users/views/YandexDisk/Documents/GitHub/TexPark_C-Cpp/lab_3/word.h
+
+C:/Users/views/YandexDisk/Documents/GitHub/TexPark_C-Cpp/lab_3/word.h
+
