@@ -40,7 +40,7 @@ int main(int argc, char *argv[]) {
                     continue;
                 *link = '\0';
                 success = insert(list, string);
-                if (success == NULL) {
+                if (!success) {
                     fprintf(stderr, "memory allocation error\n");
                     return -1;
                 }
@@ -59,12 +59,12 @@ int main(int argc, char *argv[]) {
 }
 
 int insert(node *list, char *in) {
-    if (list->value == NULL) {
+    if (!list->value) {
         list->value = new_word(in);
-        if (list->value == NULL)
+        if (!list->value)
             return 0;
         list->next = new_node(NULL, free_word);
-        if (list->next == NULL)
+        if (!list->next)
             return 0;
         return 1;
     }
@@ -77,14 +77,14 @@ int insert(node *list, char *in) {
 }
 
 void print_list(node *list) {
-    if (list->value == NULL)
+    if (!list->value)
         return;
     printf("%i: %s \n", ((word *) list->value)->count, ((word *) list->value)->value);
     print_list(list->next);
 }
 
 int sort_list(node *list) {
-    if (((word *)list->next)->value == NULL)
+    if (!((word *)list->next)->value)
         return 0;
     node *next = list->next;
     void *buf = NULL;
