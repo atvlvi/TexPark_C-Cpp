@@ -36,16 +36,16 @@ int main(int argc, char *argv[]) {
     char *link = string;
     char *max_link = string + MAXLEN - 1;
     node *list = new_node(NULL, destruct);
-    int success = 0;
+    size_t len = 0;
 
-    while (fread(buf, sizeof(char), MAXLEN, fin) == MAXLEN) {
+    do {
+        len = fread(buf, sizeof(char), MAXLEN, fin);
         for (int i = 0; i < MAXLEN; i++) {
             if (isspace(buf[i]) || ispunct(buf[i])) {
                 if (link == string)
                     continue;
                 *link = '\0';
-                success = insert(list, string);
-                if (!success) {
+                if (!insert(list, string)) {
                     fprintf(stderr, "memory allocation error\n");
                     return -1;
                 }
@@ -55,7 +55,7 @@ int main(int argc, char *argv[]) {
                 link++;
             }
         }
-    }
+    } while(len == MAXLEN);
     if (errno)  fprintf(stderr, "%s", strerror(errno));
     while(sort_list(list));
     print_list(list);
@@ -102,3 +102,4 @@ int sort_list(node *list) {
     }
     return sort_list(next);
 }
+// key key key key key key key key
