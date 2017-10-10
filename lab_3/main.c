@@ -7,6 +7,7 @@
 #include "word.h"
 
 #define MAXLEN 64
+#define NULL 0
 
 int sort_list(node *list);
 int insert(node *list, char *in);
