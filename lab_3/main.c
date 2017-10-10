@@ -5,7 +5,6 @@
 #include "word.h"
 
 #define MAXLEN 64
-#define NULL 0
 
 int sort_list(node *list);
 int insert(node *list, char *in);
@@ -31,7 +30,7 @@ int main(int argc, char *argv[]) {
     char string[MAXLEN];
     char *link = string;
     char *max_link = string + MAXLEN - 1;
-    node *list = new_node(NULL, free_word);
+    node *list = new_node(NULL, &free_word);
     int success = 0;
 
     while (fread(buf, sizeof(char), MAXLEN, fin) == MAXLEN) {
@@ -64,7 +63,7 @@ int insert(node *list, char *in) {
         list->value = new_word(in);
         if (list->value == NULL)
             return NULL;
-        list->next = new_node(NULL, free_word);
+        list->next = new_node(NULL, &free_word);
         if (list->next == NULL)
             return NULL;
         return 1;
