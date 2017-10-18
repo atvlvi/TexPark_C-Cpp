@@ -22,7 +22,7 @@ int main(int argc, char** argv) {
         if (i % 8 == 0)
             array[i] = *(new Account(i, buf, rand(), rand()));
         else
-            array[i] = *(new Account(i, buf, rand(), rand(), rand()));
+            array[i] = *(new Account(i, buf, rand(), rand(), rand() % time(NULL)));
     }
 
     cout<<"-- Show all users\n\n";
