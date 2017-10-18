@@ -27,7 +27,7 @@ int main(int argc, char** argv) {
     }
 
     cout<<"-- Show Accounts open later than\n\n";
-    showAccountsOpenLaterThan(array, ACCOUNT_COUNT, time(nullptr) - 4);
+    showAccountsOpenLaterThan(array, ACCOUNT_COUNT, time(NULL) - 4);
 
     cout<<"-- Show Accounts of owner \"Name5\"\n\n";
     showAccountsOfOwner(array, ACCOUNT_COUNT, "Name5");

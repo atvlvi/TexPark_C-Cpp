@@ -11,7 +11,7 @@ using namespace std;
 void Account::set(int number = 0, const char *lastName = "None", int balance = 0)
 {
     this->number = number;
-    this->openDate = time(nullptr);
+    this->openDate = time(NULL);
     this->balance = balance;
     size_t length = strlen(lastName)+1;
     delete[] this->lastName;

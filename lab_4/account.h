@@ -14,7 +14,7 @@ class Account {
 public:
 
     Account(int number = 0, const char *lastName = "None", int balance = 0, int transactionsAmount = 0,
-            time_t openDate = time(nullptr))
+            time_t openDate = time(NULL))
             : number(number),
               openDate(openDate),
               balance(balance),
