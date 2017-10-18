@@ -43,6 +43,5 @@ int main(int argc, char** argv) {
     }
 
     delete[] array;
-    system("pause");
     return 0;
 }
