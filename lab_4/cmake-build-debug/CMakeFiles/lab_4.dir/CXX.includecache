@@ -1,0 +1,34 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/views/YandexDisk/Documents/GitHub/TexPark_C-Cpp/lab_4/account.cpp
+ctime
+-
+cstring
+-
+iostream
+-
+account.h
+C:/Users/views/YandexDisk/Documents/GitHub/TexPark_C-Cpp/lab_4/account.h
+
+C:/Users/views/YandexDisk/Documents/GitHub/TexPark_C-Cpp/lab_4/account.h
+ctime
+-
+cstring
+-
+account.h
+C:/Users/views/YandexDisk/Documents/GitHub/TexPark_C-Cpp/lab_4/account.h
+
+C:/Users/views/YandexDisk/Documents/GitHub/TexPark_C-Cpp/lab_4/main.cpp
+iostream
+-
+cstdlib
+-
+account.h
+C:/Users/views/YandexDisk/Documents/GitHub/TexPark_C-Cpp/lab_4/account.h
+

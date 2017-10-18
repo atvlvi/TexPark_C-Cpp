@@ -3,10 +3,13 @@
 
 node* new_node(void* value, void (*destruct)(void *value)) {
     node *out = malloc(sizeof(node));
-    if (!out) return NULL;
+    if (!out)
+        return NULL;
+
     out->destruct = destruct;
     out->next = NULL;
     out->value = value;
+
     return out;
 }
 

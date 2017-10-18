@@ -7,7 +7,7 @@
 
 #define MAXLEN 64
 
-int sort_list(node *list);
+void sort_list(node *list);
 int insert(node *list, char *in);
 void print_list(node *list);
 
@@ -26,11 +26,13 @@ int main(int argc, char *argv[]) {
             fprintf(stderr, "takes 1 positional arguments but %i were given\n", argc - 1);
             return -1;
     }
+
     FILE *fin = fopen(argv[1], "r");
     if (!fin) {
         fprintf(stderr, "No such file or directory: '%s'\n", argv[1]);
         return -1;
     }
+
     char buf[MAXLEN];
     char string[MAXLEN];
     char *link = string;
@@ -40,7 +42,7 @@ int main(int argc, char *argv[]) {
 
     do {
         len = fread(buf, sizeof(char), MAXLEN, fin);
-        for (int i = 0; i < MAXLEN; i++) {
+        for (int i = 0; i < len; i++) {
             if (isspace(buf[i]) || ispunct(buf[i])) {
                 if (link == string)
                     continue;
@@ -53,14 +55,21 @@ int main(int argc, char *argv[]) {
             } else if (link < max_link) {
                 *link = buf[i];
                 link++;
+            } else {
+                fprintf(stderr, "word lenght more than MAXLEN\n");
             }
         }
     } while(len == MAXLEN);
-    if (errno)  fprintf(stderr, "%s", strerror(errno));
-    while(sort_list(list));
+
+    if (errno)
+        fprintf(stderr, "%s", strerror(errno));
+
+    sort_list(list);
     print_list(list);
+
     free_list(list);
     fclose(fin);
+
     return 0;
 }
 
@@ -89,7 +98,7 @@ void print_list(node *list) {
     print_list(list->next);
 }
 
-int sort_list(node *list) {
+int sort_list_body(node *list) {
     if (!((word *)list->next)->value)
         return 0;
     node *next = list->next;
@@ -98,8 +107,12 @@ int sort_list(node *list) {
         buf = list->value;
         list->value = next->value;
         next->value = buf;
-        return 1 + sort_list(next);
+        return 1 + sort_list_body(next);
     }
-    return sort_list(next);
+    return sort_list_body(next);
+}
+
+void sort_list(node *list) {
+    while (sort_list_body(list));
 }
 // key key key key key key key key
