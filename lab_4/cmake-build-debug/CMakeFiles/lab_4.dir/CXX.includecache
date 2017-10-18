@@ -29,6 +29,12 @@ iostream
 -
 cstdlib
 -
+string
+-
 account.h
 C:/Users/views/YandexDisk/Documents/GitHub/TexPark_C-Cpp/lab_4/account.h
+stdio.h
+-
+stdlib.h
+-
 
