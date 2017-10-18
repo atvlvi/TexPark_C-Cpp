@@ -13,7 +13,7 @@ int main(int argc, char** argv) {
 
     for (int i = 0; i < ACCOUNT_COUNT; i++) {
         strncpy(buf, "Name", 16);
-        _itoa_s(rand()%12, num, 8, 10);
+        itoa(rand()%12, num, 10);
         strncat(buf, num, 16);
         if (i % 8 == 0)
             array[i] = *(new Account(i, buf, rand(), rand()));
