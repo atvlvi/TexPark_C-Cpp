@@ -17,7 +17,7 @@ int main(int argc, char** argv) {
 
     for (int i = 0; i < ACCOUNT_COUNT; i++) {
         strncpy(buf, "Name", 16);
-        s = std::to_string(rand()%12);
+        s = to_string(rand()%12);
         strncat(buf, s.c_str(), 16);
         if (i % 8 == 0)
             array[i] = *(new Account(i, buf, rand(), rand()));
