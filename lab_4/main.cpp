@@ -1,6 +1,8 @@
 #include <iostream>
 #include <cstdlib>
 #include "account.h"
+#include <stdio.h>
+#include <stdlib.h>
 #define ACCOUNT_COUNT 32
 
 using namespace std;
