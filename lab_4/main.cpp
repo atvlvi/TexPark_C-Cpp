@@ -10,7 +10,7 @@ using namespace std;
 
 int main(int argc, char** argv) {
 
-    Account *array = new Account[ACCOUNT_COUNT];
+    Account **array = new Account*[ACCOUNT_COUNT];
     char buf[16];
     char num[8];
     std::string s;
@@ -20,24 +20,24 @@ int main(int argc, char** argv) {
         s = to_string(rand()%12);
         strncat(buf, s.c_str(), 16);
         if (i % 8 == 0)
-            array[i] = *(new Account(i, buf, rand(), rand()));
+            array[i] = new Account(i, buf, rand(), rand());
         else
-            array[i] = *(new Account(i, buf, rand(), rand(), rand() % time(NULL)));
+            array[i] = new Account(i, buf, rand(), rand(), rand() % time(NULL));
     }
 
     cout<<"-- Show all users\n\n";
     for (int i = 0; i < ACCOUNT_COUNT; i++) {
-        array[i].show();
+        array[i]->show();
     }
 
     cout<<"-- Show Accounts open later than\n\n";
-    showAccountsOpenLaterThan(array, ACCOUNT_COUNT, time(NULL) - 4);
+    showAccountsOpenLaterThan(*array, ACCOUNT_COUNT, time(NULL) - 4);
 
     cout<<"-- Show Accounts of owner \"Name5\"\n\n";
-    showAccountsOfOwner(array, ACCOUNT_COUNT, "Name5");
+    showAccountsOfOwner(*array, ACCOUNT_COUNT, "Name5");
 
     cout<<"-- Show n (= 6) Accounts with largest balance\n\n";
-    Account *nLB = getNAccountsWithLargestBalance(array, ACCOUNT_COUNT, 6);
+    Account *nLB = getNAccountsWithLargestBalance(*array, ACCOUNT_COUNT, 6);
     for (int i = 0; i < 6; i++) {
         nLB[i].show();
     }

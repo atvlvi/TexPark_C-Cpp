@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/views/YandexDisk/Documents/GitHub/TexPark_C-Cpp/lab_5/fraction.cpp
+fraction.h
+C:/Users/views/YandexDisk/Documents/GitHub/TexPark_C-Cpp/lab_5/fraction.h
+
+C:/Users/views/YandexDisk/Documents/GitHub/TexPark_C-Cpp/lab_5/fraction.h
+iostream
+-
+ostream
+-
+
+C:/Users/views/YandexDisk/Documents/GitHub/TexPark_C-Cpp/lab_5/main.cpp
+iostream
+-
+fraction.h
+C:/Users/views/YandexDisk/Documents/GitHub/TexPark_C-Cpp/lab_5/fraction.h
+
