@@ -20,13 +20,12 @@ public:
         this->title = nullptr;
     }
 
-    Magazin(const Magazin &other) : volume(other.volume), number(other.number), year(other.year) {
+    Magazin(const Magazin &other) : Item(other.invNumber), volume(other.volume), number(other.number), year(other.year) {
         this->title = strcopy(other.title);
     }
 
     Magazin(int invNumber, const char *title, int volume, int number, int year) : Item(invNumber), volume(volume),
-                                                                                  number(number), year(year)
-    {
+                                                                                  number(number), year(year) {
         this->title = strcopy(title);
     }
 

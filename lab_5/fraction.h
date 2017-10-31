@@ -10,14 +10,13 @@
 
 class Fraction {
 public:
-    Fraction(int divisible = 0, unsigned int divisor = 1) : divisible(divisible), divisor(divisor) {
+
+    explicit Fraction(int divisible = 0, unsigned int divisor = 1) : divisible(divisible), divisor(divisor) {
         if (divisor == 0) {
             std::cerr << "Zero division";
             exit(EXIT_FAILURE);
         }
     }
-
-    Fraction();
 
     int getDivisible();
 
@@ -49,7 +48,7 @@ public:
 
     friend bool operator >= (const Fraction &f1, const Fraction &f2);
 
-    operator float() const;
+    explicit operator float() const;
 
 private:
 

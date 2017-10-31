@@ -19,6 +19,5 @@ int main() {
         array[i]->Show();
         std::cout<<std::endl;
     }
-    getchar();
     return 0;
 }

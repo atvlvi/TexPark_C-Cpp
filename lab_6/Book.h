@@ -22,7 +22,7 @@ public:
         this->publisher = nullptr;
     }
 
-    Book(const Book &other) : year(other.year) {
+    Book(const Book &other) : Item(other.invNumber), year(other.year) {
         this->author = book_strcopy(other.author);
         this->title = book_strcopy(other.title);
         this->publisher = book_strcopy(other.publisher);

@@ -2,6 +2,7 @@
 // Created by views on 22.10.2017.
 //
 
+#include <cmath>
 #include "fraction.h"
 
 int Fraction::getDivisible() {
@@ -20,7 +21,7 @@ Fraction& operator+=(Fraction &f1, const Fraction &f2) {
 }
 
 Fraction operator-(const Fraction &f) {
-    return {f.divisible, f.divisor};
+    return Fraction(-f.divisible, f.divisor);
 }
 
 Fraction operator+(const Fraction &f1, const Fraction &f2) {
@@ -80,7 +81,7 @@ Fraction::operator float() const {
 
 int Fraction::nod(int a, int b) const {
     if (a == 0 and b == 0) {
-        a = int(divisible);
+        a = abs(divisible);
         b = divisor;
     }
     if (a < 0) {
