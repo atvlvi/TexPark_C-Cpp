@@ -15,6 +15,7 @@ int main() {
     for (int i = 0; i < sizeArray; i++) {
         cout<<*array[i]<<endl;
     }
+    delete[] array;
     return 0;
 }
 

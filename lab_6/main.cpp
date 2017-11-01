@@ -17,6 +17,9 @@ int main() {
     }
     for (int i = 0; i < size_array; i++) {
         array[i]->Show();
+
+        delete (Book *)array[i];
+//        std::cout << *array[i];
         std::cout<<std::endl;
     }
     return 0;
